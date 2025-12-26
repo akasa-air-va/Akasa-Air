@@ -460,6 +460,10 @@ body {
   padding: 6px 0;
   opacity: 0.9;
 }
+.plane-icon {
+  font-size: 20px;
+  transform: rotate(45deg);
+}
 
 /* =========================
    FOOTER FIX

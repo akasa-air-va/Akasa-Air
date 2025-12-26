@@ -1,0 +1,10 @@
+[
+  ["VIDP", "VABB"],
+  ["VIDP", "VOBL"],
+  ["VABB", "VOMM"],
+  ["VOBL", "VOCI"],
+  ["VOMM", "VECC"],
+  ["VAAH", "VIDP"],
+  ["VECC", "VIDP"],
+  ["VOTV", "VOMM"]
+]
