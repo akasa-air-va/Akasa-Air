@@ -323,13 +323,81 @@ body {
 }
 
 /* ---------- FOOTER ---------- */
-footer {
-  background: #080808;
-  text-align: center;
-  padding: 24px;
-  font-size: 0.9rem;
-  opacity: 0.7;
+/* =========================
+   PAGE CONTAINER (GLOBAL)
+========================= */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 32px 80px;
 }
+
+/* Page titles */
+.page-container h1 {
+  font-size: 2.6rem;
+  margin-bottom: 50px;
+  text-align: center;
+  color: var(--akasa-purple);
+}
+
+/* =========================
+   GENERIC CARD
+========================= */
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+/* Fleet card specifics */
+.fleet-card h2 {
+  color: var(--akasa-purple);
+  margin-bottom: 10px;
+}
+
+.fleet-card .fleet-count {
+  font-weight: 700;
+  color: var(--akasa-orange);
+  margin-bottom: 16px;
+}
+
+.fleet-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.fleet-card li {
+  padding: 6px 0;
+  opacity: 0.9;
+}
+
+/* Fleet image */
+.fleet-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  background: #111;
+}
+
+/* =========================
+   FOOTER FIX
+========================= */
+footer {
+  text-align: center;
+  padding: 28px;
+  opacity: 0.6;
+}
+
 .fleet-card h2 {
   color: var(--akasa-purple);
 }
