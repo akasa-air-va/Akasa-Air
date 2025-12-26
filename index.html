@@ -1,9 +1,21 @@
-<nav>
-  <div class="brand">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Akasa Virtual Airline</title>
+
+  <!-- IMPORTANT: correct relative path -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-left">
     <img src="assets/logo.png" alt="Akasa VA Logo">
-    <h2>Akasa VA</h2>
+    <span>Akasa VA</span>
   </div>
-  <div>
+  <div class="nav-right">
     <a href="index.html">Home</a>
     <a href="fleet.html">Fleet</a>
     <a href="destinations.html">Destinations</a>
@@ -11,22 +23,32 @@
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <h1>Akasa Air<span>Virtual Airline</span></h1>
+    <h1>Akasa <span>Virtual Airline</span></h1>
     <p>Say yes to the future of Indian virtual aviation.</p>
 
-    <div class="stats">
-      <div class="stat">Growing Indian Network</div>
-      <div class="stat">Modern Boeing 737 Fleet</div>
-      <div class="stat">Realistic Operations</div>
+    <div class="hero-stats">
+      <div>Growing Indian Network</div>
+      <div>Modern Boeing 737 Fleet</div>
+      <div>Realistic Operations</div>
     </div>
 
-    <a href="destinations.html" class="hero-btn">Explore Our Routes</a>
+    <a class="btn-primary" href="destinations.html">Explore Our Destinations</a>
   </div>
 </section>
 
+<!-- ABOUT -->
+<section class="section">
+  <h2>About Akasa VA</h2>
+  <p>
+    Akasa Virtual Airline is a community-driven airline inspired by Akasa Air.
+    We focus on realism, structured operations, and immersive flying using GeoFS.
+  </p>
+</section>
 
+<!-- FOOTER -->
 <footer>
   © 2025 Akasa Virtual Airline — Not affiliated with Akasa Air
 </footer>
