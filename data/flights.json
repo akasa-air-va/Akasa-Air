@@ -1,8 +1,46 @@
 [
-  { "from": "VIDP", "to": "VABB" },
-  { "from": "VABB", "to": "VOBL" },
-  { "from": "VOBL", "to": "VOMM" },
-  { "from": "VOMM", "to": "VOCI" },
-  { "from": "VAAH", "to": "VIDP" },
-  { "from": "VECC", "to": "VIDP" }
+  {"origin":"VABB","destination":"VOMM","flight":"AKJ101","aircraft":"VT-ANU","price":65,"status":"Operating"},
+  {"origin":"VOMM","destination":"VABB","flight":"AKJ102","aircraft":"VT-ANU","price":65,"status":"Operating"},
+
+  {"origin":"VABB","destination":"VOBL","flight":"AKJ103","aircraft":"VT-ANU","price":65,"status":"Operating"},
+  {"origin":"VOBL","destination":"VABB","flight":"AKJ104","aircraft":"VT-ANU","price":65,"status":"Operating"},
+
+  {"origin":"VABB","destination":"VAAH","flight":"AKJ105","aircraft":"VT-ANU","price":65,"status":"Operating"},
+  {"origin":"VAAH","destination":"VABB","flight":"AKJ106","aircraft":"VT-ANU","price":65,"status":"Operating"},
+
+  {"origin":"VIDP","destination":"VOMM","flight":"AKJ107","aircraft":"VT-IXA","price":65,"status":"Operating"},
+  {"origin":"VOMM","destination":"VIDP","flight":"AKJ108","aircraft":"VT-IXA","price":65,"status":"Operating"},
+
+  {"origin":"VIDP","destination":"VOBL","flight":"AKJ109","aircraft":"VT-IXA","price":65,"status":"Operating"},
+  {"origin":"VOBL","destination":"VIDP","flight":"AKJ110","aircraft":"VT-IXA","price":65,"status":"Operating"},
+
+  {"origin":"VIDP","destination":"VECC","flight":"AKJ111","aircraft":"VT-IXA","price":65,"status":"Operating"},
+  {"origin":"VECC","destination":"VIDP","flight":"AKJ112","aircraft":"VT-IXA","price":65,"status":"Operating"},
+
+  {"origin":"VOBL","destination":"VOCL","flight":"AKJ113","aircraft":"VT-BHL","price":65,"status":"Operating"},
+  {"origin":"VOCL","destination":"VOBL","flight":"AKJ114","aircraft":"VT-BHL","price":65,"status":"Operating"},
+
+  {"origin":"VOBL","destination":"VOCI","flight":"AKJ115","aircraft":"VT-BHL","price":65,"status":"Operating"},
+  {"origin":"VOCI","destination":"VOBL","flight":"AKJ116","aircraft":"VT-BHL","price":65,"status":"Operating"},
+
+  {"origin":"VOBL","destination":"VOTV","flight":"AKJ117","aircraft":"VT-BHL","price":65,"status":"Operating"},
+  {"origin":"VOTV","destination":"VOBL","flight":"AKJ118","aircraft":"VT-BHL","price":65,"status":"Operating"},
+
+  {"origin":"VOMM","destination":"VOCL","flight":"AKJ119","aircraft":"VT-CXN","price":65,"status":"Operating"},
+  {"origin":"VOCL","destination":"VOMM","flight":"AKJ120","aircraft":"VT-CXN","price":65,"status":"Operating"},
+
+  {"origin":"VOMM","destination":"VOCI","flight":"AKJ121","aircraft":"VT-CXN","price":65,"status":"Operating"},
+  {"origin":"VOCI","destination":"VOMM","flight":"AKJ122","aircraft":"VT-CXN","price":65,"status":"Operating"},
+
+  {"origin":"VOMM","destination":"VAAH","flight":"AKJ123","aircraft":"VT-CXN","price":65,"status":"Operating"},
+  {"origin":"VAAH","destination":"VOMM","flight":"AKJ124","aircraft":"VT-CXN","price":65,"status":"Operating"},
+
+  {"origin":"VECC","destination":"VABB","flight":"AKJ125","aircraft":"VT-EQZ","price":65,"status":"Operating"},
+  {"origin":"VABB","destination":"VECC","flight":"AKJ126","aircraft":"VT-EQZ","price":65,"status":"Operating"},
+
+  {"origin":"VECC","destination":"VIDP","flight":"AKJ127","aircraft":"VT-EQZ","price":65,"status":"Operating"},
+  {"origin":"VIDP","destination":"VOCI","flight":"AKJ128","aircraft":"VT-EQZ","price":65,"status":"Operating"},
+
+  {"origin":"VECC","destination":"VOMM","flight":"AKJ129","aircraft":"VT-EQZ","price":65,"status":"Operating"},
+  {"origin":"VOMM","destination":"VECC","flight":"AKJ130","aircraft":"VT-EQZ","price":65,"status":"Operating"}
 ]
