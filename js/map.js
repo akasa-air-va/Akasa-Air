@@ -1,65 +1,74 @@
-const map = L.map("map").setView([22.5, 78.9], 5);
+// Initialize map centered on India
+const map = L.map("map", {
+  zoomControl: false
+}).setView([22.5, 78.9], 5);
 
-L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-  attribution: "© OpenStreetMap © CARTO"
-}).addTo(map);
+// Dark theme tiles
+L.tileLayer(
+  "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+  {
+    attribution: "© OpenStreetMap © CARTO"
+  }
+).addTo(map);
 
-// Plane icon
-const planeIcon = L.divIcon({
-  html: "✈️",
-  className: "plane-icon",
-  iconSize: [24, 24]
-});
+// Zoom control bottom right
+L.control.zoom({ position: "bottomright" }).addTo(map);
 
-Promise.all([
-  fetch("data/airports.json").then(r => r.json()),
-  fetch("data/flights.json").then(r => r.json())
-]).then(([airports, flights]) => {
+// Load destinations
+fetch("data/destinations.json")
+  .then(res => res.json())
+  .then(destinations => {
 
-  // Draw destination dots
-  Object.entries(airports).forEach(([code, a]) => {
-    L.circleMarker([a.lat, a.lng], {
-      radius: 6,
-      fillColor: "#5b2ddb",
-      color: "#fff",
-      weight: 1,
-      fillOpacity: 1
-    }).addTo(map).bindPopup(`${code} – ${a.name}`);
+    destinations.forEach(d => {
+      L.circleMarker([d.lat, d.lng], {
+        radius: 6,
+        fillColor: "#ffcc00",
+        color: "#000",
+        weight: 1,
+        fillOpacity: 1
+      })
+      .addTo(map)
+      .bindPopup(`<b>${d.icao}</b><br>${d.name}`);
+    });
+
+    animatePlane(destinations);
   });
 
-  // Animate one plane every 6 seconds
-  setInterval(() => {
-    const f = flights[Math.floor(Math.random() * flights.length)];
-    animateFlight(
-      airports[f.from],
-      airports[f.to]
-    );
-  }, 6000);
-});
 
-function animateFlight(from, to) {
-  if (!from || !to) return;
+// SIMPLE PLANE ANIMATION (ACTUALLY WORKS)
+function animatePlane(destinations) {
+  let from = destinations[Math.floor(Math.random() * destinations.length)];
+  let to;
 
-  const steps = 120;
-  let i = 0;
+  do {
+    to = destinations[Math.floor(Math.random() * destinations.length)];
+  } while (to === from);
 
-  const latStep = (to.lat - from.lat) / steps;
-  const lngStep = (to.lng - from.lng) / steps;
+  const planeIcon = L.divIcon({
+    html: "✈️",
+    className: "",
+    iconSize: [20, 20]
+  });
 
-  let lat = from.lat;
-  let lng = from.lng;
+  const plane = L.marker([from.lat, from.lng], {
+    icon: planeIcon
+  }).addTo(map);
 
-  const marker = L.marker([lat, lng], { icon: planeIcon }).addTo(map);
+  let progress = 0;
+  const steps = 200;
 
   const interval = setInterval(() => {
-    lat += latStep;
-    lng += lngStep;
-    marker.setLatLng([lat, lng]);
+    progress++;
+    const lat = from.lat + (to.lat - from.lat) * (progress / steps);
+    const lng = from.lng + (to.lng - from.lng) * (progress / steps);
+    plane.setLatLng([lat, lng]);
 
-    i++;
-    if (i >= steps) {
-      map.removeLayer(marker);
+    if (progress >= steps) {
       clearInterval(interval);
+      map.removeLayer(plane);
+
+      // Launch another plane after delay
+      setTimeout(() => animatePlane(destinations), 2000);
     }
-  }, 50);
+  }, 30);
 }
