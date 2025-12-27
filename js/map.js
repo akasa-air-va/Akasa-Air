@@ -1,9 +1,9 @@
-// Initialize map centered on India
+// Create map (India focused)
 const map = L.map("map", {
   zoomControl: false
 }).setView([22.5, 78.9], 5);
 
-// Dark theme tiles
+// Dark airline-style basemap
 L.tileLayer(
   "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
   {
@@ -11,27 +11,24 @@ L.tileLayer(
   }
 ).addTo(map);
 
-// Zoom control bottom right
-L.control.zoom({ position: "bottomright" }).addTo(map);
-
-// Load destinations
-fetch("data/destinations.json")
+// Load airports
+fetch("data/airports.json")
   .then(res => res.json())
-  .then(destinations => {
-
-    destinations.forEach(d => {
-      L.circleMarker([d.lat, d.lng], {
-        radius: 6,
-        fillColor: "#ffcc00",
+  .then(airports => {
+    Object.entries(airports).forEach(([icao, data]) => {
+      L.circleMarker([data.lat, data.lng], {
+        radius: 7,
+        fillColor: "#ff6600ff",
+        fillOpacity: 0.95,
         color: "#000",
-        weight: 1,
-        fillOpacity: 1
+        weight: 1
       })
-      .addTo(map)
-      .bindPopup(`<b>${d.icao}</b><br>${d.name}`);
+        .addTo(map)
+        .bindPopup(`<b>${icao}</b><br>${data.name}`);
     });
-
-    animatePlane(destinations);
+  })
+  .catch(err => {
+    console.error("Airport load error:", err);
   });
 
 

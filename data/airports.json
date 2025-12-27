@@ -1,11 +1,11 @@
 {
-  "VIDP": { "name": "Delhi",        "lat": 28.5562, "lng": 77.1000 },
-  "VABB": { "name": "Mumbai",       "lat": 19.0896, "lng": 72.8656 },
-  "VOBL": { "name": "Bengaluru",    "lat": 13.1986, "lng": 77.7066 },
-  "VOMM": { "name": "Chennai",      "lat": 12.9900, "lng": 80.1693 },
-  "VOCI": { "name": "Kochi",        "lat": 10.1520, "lng": 76.4019 },
-  "VAAH": { "name": "Ahmedabad",   "lat": 23.0772, "lng": 72.6347 },
-  "VECC": { "name": "Kolkata",      "lat": 22.6547, "lng": 88.4467 },
-  "VOTV": { "name": "Trivandrum",   "lat": 8.4821,  "lng": 76.9201 },
-  "VOCL": { "name": "Calicut",      "lat": 11.1368, "lng": 75.9553 }
+  "VIDP": { "name": "Delhi", "lat": 28.5562, "lng": 77.1000 },
+  "VABB": { "name": "Mumbai", "lat": 19.0896, "lng": 72.8656 },
+  "VOBL": { "name": "Bengaluru", "lat": 13.1986, "lng": 77.7066 },
+  "VOMM": { "name": "Chennai", "lat": 12.9941, "lng": 80.1709 },
+  "VOCI": { "name": "Kochi", "lat": 10.1520, "lng": 76.4019 },
+  "VAAH": { "name": "Ahmedabad", "lat": 23.0772, "lng": 72.6347 },
+  "VECC": { "name": "Kolkata", "lat": 22.6547, "lng": 88.4467 },
+  "VOTV": { "name": "Trivandrum", "lat": 8.4821, "lng": 76.9201 },
+  "VOCL": { "name": "Calicut", "lat": 11.1368, "lng": 75.9553 }
 }
