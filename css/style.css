@@ -146,6 +146,11 @@ nav h2 {
   font-size: 18px;
   transition: opacity 0.8s;
 }
+.plane {
+  font-size: 18px;
+  transition: opacity 0.6s linear;
+  transform-origin: center;
+}
 
 .toggle-btn {
   background: #111;

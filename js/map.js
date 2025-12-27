@@ -1,142 +1,163 @@
-document.addEventListener("DOMContentLoaded", () => {
+// =======================
+// MAP SETUP
+// =======================
+const map = L.map("map", { zoomControl: false }).setView([22.5, 78.9], 5);
 
-  /* ================= MAP ================= */
-  const map = L.map("map", {
-    zoomControl: false
-  }).setView([22.5, 78.9], 5);
+L.tileLayer(
+  "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+  { attribution: "© OpenStreetMap © CARTO" }
+).addTo(map);
 
-  L.tileLayer(
-    "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-    { attribution: "© OpenStreetMap © CARTO" }
-  ).addTo(map);
+// =======================
+// HELPERS
+// =======================
+function bearing(a, b) {
+  const y = Math.sin((b.lng - a.lng) * Math.PI / 180) * Math.cos(b.lat * Math.PI / 180);
+  const x =
+    Math.cos(a.lat * Math.PI / 180) * Math.sin(b.lat * Math.PI / 180) -
+    Math.sin(a.lat * Math.PI / 180) * Math.cos(b.lat * Math.PI / 180) *
+    Math.cos((b.lng - a.lng) * Math.PI / 180);
+  return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
+}
 
-  /* ================= STATE ================= */
-  let animationEnabled = true;
-  let activeRoutes = [];
+// Quadratic bezier curve
+function curvePoints(a, b, steps = 120) {
+  const latMid = (a.lat + b.lat) / 2 + 2;
+  const lngMid = (a.lng + b.lng) / 2;
+  const pts = [];
 
-  /* ================= HELPERS ================= */
-  function bearing(lat1, lon1, lat2, lon2) {
-    const y = Math.sin(lon2 - lon1) * Math.cos(lat2);
-    const x =
-      Math.cos(lat1) * Math.sin(lat2) -
-      Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1);
-    return (Math.atan2(y, x) * 180) / Math.PI;
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps;
+    const lat =
+      (1 - t) * (1 - t) * a.lat +
+      2 * (1 - t) * t * latMid +
+      t * t * b.lat;
+    const lng =
+      (1 - t) * (1 - t) * a.lng +
+      2 * (1 - t) * t * lngMid +
+      t * t * b.lng;
+    pts.push([lat, lng]);
   }
+  return pts;
+}
 
-  function curvedPath(from, to, steps = 120) {
-    const points = [];
-    const offset = 0.15;
+// =======================
+// LOAD DATA
+// =======================
+Promise.all([
+  fetch("data/airports.json").then(r => r.json()),
+  fetch("data/routes.json").then(r => r.json()),
+  fetch("data/hon-circle.json").then(r => r.json())
+]).then(([airports, routes, hon]) => {
 
-    for (let i = 0; i <= steps; i++) {
-      const t = i / steps;
-      const lat =
-        from.lat + (to.lat - from.lat) * t +
-        Math.sin(Math.PI * t) * offset;
-      const lng =
-        from.lng + (to.lng - from.lng) * t;
-      points.push([lat, lng]);
-    }
-    return points;
-  }
+  const airportMarkers = {};
+  const routeLayer = L.layerGroup().addTo(map);
 
-  /* ================= LOAD DATA ================= */
-  Promise.all([
-    fetch("data/airports.json").then(r => r.json()),
-    fetch("data/routes.json").then(r => r.json())
-  ]).then(([airports, routes]) => {
-
-    /* ===== AIRPORT MARKERS ===== */
-    Object.entries(airports).forEach(([icao, a]) => {
-      L.circleMarker([a.lat, a.lng], {
-        radius: 6,
-        fillColor: "#ff6a00",
-        fillOpacity: 0.95,
-        color: "#000",
-        weight: 1
-      })
+  // =======================
+  // AIRPORT MARKERS (AKASA)
+  // =======================
+  Object.entries(airports).forEach(([icao, a]) => {
+    const m = L.circleMarker([a.lat, a.lng], {
+      radius: 7,
+      fillColor: "#ff6600",
+      fillOpacity: 1,
+      color: "#000",
+      weight: 1
+    })
       .addTo(map)
       .bindPopup(`<b>${icao}</b><br>${a.name}`)
-      .on("click", () => showRoutesFrom(icao));
-    });
+      .on("click", () => showRoutes(icao));
 
-    /* ===== ROUTES ON SELECTION ===== */
-    function showRoutesFrom(icao) {
-      activeRoutes.forEach(r => map.removeLayer(r));
-      activeRoutes = [];
-
-      routes
-        .filter(r => r.origin === icao)
-        .forEach(route => {
-          const from = airports[route.origin];
-          const to = airports[route.destination];
-          if (!from || !to) return;
-
-          const path = curvedPath(from, to);
-
-          const line = L.polyline(path, {
-            dashArray: "6 10",
-            color: "#ffcc00",
-            weight: 2,
-            opacity: 0.7
-          })
-          .addTo(map)
-          .on("mouseover", e => {
-            e.target.setStyle({ weight: 4, opacity: 1 });
-            e.target.bindTooltip(
-              `<b>${route.flightNo}</b><br>
-               ${route.aircraft}<br>
-               ₹${route.price}<br>
-               ${route.status}`,
-              { sticky: true }
-            ).openTooltip();
-          })
-          .on("mouseout", e => {
-            e.target.setStyle({ weight: 2, opacity: 0.7 });
-          });
-
-          activeRoutes.push(line);
-
-          if (animationEnabled) animatePlane(from, to);
-        });
-    }
-
-    /* ===== PLANE ANIMATION ===== */
-    function animatePlane(from, to) {
-      const path = curvedPath(from, to);
-      const heading = bearing(
-        from.lat * Math.PI / 180,
-        from.lng * Math.PI / 180,
-        to.lat * Math.PI / 180,
-        to.lng * Math.PI / 180
-      );
-
-      const plane = L.marker(path[0], {
-        icon: L.divIcon({
-          html: `<div style="
-            transform: rotate(${heading}deg);
-            font-size:18px;
-            opacity:0.8">✈️</div>`
-        })
-      }).addTo(map);
-
-      let i = 0;
-      const timer = setInterval(() => {
-        if (!animationEnabled || i >= path.length) {
-          clearInterval(timer);
-          map.removeLayer(plane);
-          return;
-        }
-        plane.setLatLng(path[i]);
-        i++;
-      }, 45); // SLOWER & SMOOTHER
-    }
-
+    airportMarkers[icao] = a;
   });
 
-  /* ================= TOGGLE ================= */
-  window.toggleFlights = () => {
-    animationEnabled = !animationEnabled;
-    alert("Flight animation: " + (animationEnabled ? "ON" : "OFF"));
-  };
+  // =======================
+  // HON CIRCLE MARKERS
+  // =======================
+  Object.values(hon).forEach(h => {
+    L.circleMarker([airports[h.icao]?.lat, airports[h.icao]?.lng], {
+      radius: 6,
+      fillColor: "#4da6ff",
+      fillOpacity: 0.9,
+      color: "#000",
+      weight: 1
+    })
+      .addTo(map)
+      .bindPopup(h.city);
+  });
 
+  // =======================
+  // SHOW ROUTES FROM AIRPORT
+  // =======================
+  function showRoutes(origin) {
+    routeLayer.clearLayers();
+
+    routes
+      .filter(r => r.origin === origin)
+      .forEach(r => {
+        const a = airports[r.origin];
+        const b = airports[r.destination];
+        if (!a || !b) return;
+
+        const path = curvePoints(a, b);
+        const line = L.polyline(path, {
+          color: "#ffcc00",
+          dashArray: "6,8",
+          weight: 2,
+          opacity: 0.7
+        })
+          .addTo(routeLayer)
+          .on("mouseover", function () {
+            this.setStyle({ weight: 4, opacity: 1 });
+            this.bindTooltip(
+              `<b>${r.flightNo}</b><br>
+               Aircraft: ${r.aircraft}<br>
+               Price: $${r.price}<br>
+               Status: ${r.status}`,
+              { sticky: true }
+            );
+          })
+          .on("mouseout", function () {
+            this.setStyle({ weight: 2, opacity: 0.7 });
+          });
+
+        animatePlane(path);
+      });
+  }
+
+  // =======================
+  // PLANE ANIMATION
+  // =======================
+  function animatePlane(path) {
+    const icon = L.divIcon({
+      html: "✈️",
+      className: "plane",
+      iconSize: [20, 20]
+    });
+
+    const marker = L.marker(path[0], { icon }).addTo(routeLayer);
+
+    let i = 0;
+    marker.getElement().style.opacity = 0;
+
+    const timer = setInterval(() => {
+      if (i === 10) marker.getElement().style.opacity = 1;
+      if (i > path.length - 10) marker.getElement().style.opacity -= 0.1;
+
+      if (i >= path.length - 1) {
+        routeLayer.removeLayer(marker);
+        clearInterval(timer);
+        return;
+      }
+
+      const from = { lat: path[i][0], lng: path[i][1] };
+      const to = { lat: path[i + 1][0], lng: path[i + 1][1] };
+      const hdg = bearing(from, to);
+
+      marker.setLatLng(path[i]);
+      marker.getElement().style.transform = `rotate(${hdg}deg)`;
+
+      i++;
+    }, 60); // slowed animation
+  }
 });
