@@ -327,6 +327,109 @@ footer {
   }
 }
 
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+@media (max-width: 900px) {
+
+  /* NAVBAR */
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .nav-left span {
+    font-size: 1rem;
+  }
+
+  .nav-right {
+    display: flex;
+    gap: 14px;
+  }
+
+  .nav-right a {
+    font-size: 0.85rem;
+    margin-left: 0;
+  }
+
+  /* HERO */
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 140px 20px 80px;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* PAGE CONTAINER */
+  .page-container {
+    padding: 120px 18px 70px;
+  }
+
+  .page-container h1 {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+
+  /* FLEET GRID */
+  .fleet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fleet-card {
+    padding: 22px;
+  }
+
+  /* FLEET IMAGE FIX */
+  .fleet-image {
+    height: 160px;
+  }
+
+  /* MAP */
+  #map {
+    height: calc(100vh - 64px);
+  }
+
+  /* FOOTER */
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+@media (max-width: 480px) {
+
+  .nav-left img {
+    height: 28px;
+  }
+
+  .nav-left span {
+    display: none; /* logo-only navbar on tiny screens */
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .btn-primary {
+    padding: 12px 26px;
+    font-size: 0.95rem;
+  }
+}
+
+
 /* -------SAFETY-------*/
 .page p {
   max-width: 900px;
