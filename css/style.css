@@ -314,12 +314,11 @@ nav h2 {
   opacity: 0.9;
 }
 
-}
 #map {
   height: 100vh;
   width: 100%;
-  margin-top: 64px;
 }
+
 
 .akasa-plane {
   width: 28px;
