@@ -147,181 +147,6 @@ nav h2 {
   font-size: 2rem;
 }
 
-/* ---------- MAP ---------- */
-#map {
-  height: calc(100vh - 64px);
-  width: 100%;
-  margin-top: 64px;
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-  background: #080808;
-  text-align: center;
-  padding: 24px;
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
-  .hero p {
-    font-size: 1.1rem;
-  }
-
-  .nav-right a {
-    margin-left: 14px;
-  }
-}
-/* ---------- RESET ---------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* ---------- BASE ---------- */
-body {
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  background: #0c0c0c;
-  color: #f1f1f1;
-  line-height: 1.6;
-}
-
-/* ---------- NAVBAR ---------- */
-.navbar {
-  height: 64px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(6px);
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 32px;
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.nav-left img {
-  height: 34px;
-}
-
-.nav-left span {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: ff7b00;
-}
-
-.nav-right a {
-  margin-left: 22px;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.nav-right a:hover {
-  opacity: 0.8;
-}
-
-/* ---------- HERO ---------- */
-.hero {
-  height: 100vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
-    url("../assets/hero.png") center / cover no-repeat;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 120px 20px 40px;
-}
-
-
-.hero-content {
-  max-width: 900px;
-}
-
-.hero h1 {
-  font-size: clamp(3rem, 7vw, 5.2rem);
-  font-weight: 900;
-  margin-bottom: 10px;
-}
-
-.hero h1 span {
-  color: ff7b00;
-}
-
-.hero p {
-  font-size: 1.3rem;
-  margin-bottom: 35px;
-  opacity: 0.95;
-}
-
-/* ---------- HERO STATS ---------- */
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 35px;
-}
-
-.hero-stats div {
-  background: rgba(0, 0, 0, 0.55);
-  padding: 14px 26px;
-  border-radius: 30px;
-  font-size: 1rem;
-  border: 1px solid rgba(255,255,255,0.15);
-}
-
-/* ---------- BUTTON ---------- */
-.btn-primary {
-  display: inline-block;
-  padding: 14px 38px;
-  border-radius: 30px;
-  background: #ff7b00;
-  color: #111;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 1.05rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 28px rgba(255,204,0,0.45);
-}
-
-/* ---------- SECTIONS ---------- */
-.section {
-  max-width: 1000px;
-  margin: auto;
-  padding: 90px 25px;
-}
-
-.section h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2rem;
-}
-
-/* ---------- MAP ---------- */
-#map {
-  height: calc(100vh - 64px);
-  width: 100%;
-  margin-top: 64px;
-}
-
 /* ---------- FOOTER ---------- */
 /* =========================
    PAGE CONTAINER (GLOBAL)
@@ -463,6 +288,18 @@ body {
 .plane-icon {
   font-size: 20px;
   transform: rotate(45deg);
+  background: transparent;
+  border: none;
+}
+#map {
+  height: 100vh;
+  width: 100%;
+}
+
+.akasa-plane {
+  width: 28px;
+  height: 28px;
+  transform-origin: center;
 }
 
 /* =========================
