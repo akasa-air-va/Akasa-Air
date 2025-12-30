@@ -1,46 +1,64 @@
 [
-  {"origin":"VABB","destination":"VOMM","flightNo":"AKJ101","aircraft":"VT-ANU","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VOMM","destination":"VABB","flightNo":"AKJ102","aircraft":"VT-ANU","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VABB", "destination": "VOMM", "flightNo": "AKJ101", "aircraft": ["VT-ANU","VT-FMR"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VOMM", "destination": "VABB", "flightNo": "AKJ102", "aircraft": ["VT-ANU","VT-FMR"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VABB","destination":"VOBL","flightNo":"AKJ103","aircraft":"VT-ANU","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VOBL","destination":"VABB","flightNo":"AKJ104","aircraft":"VT-ANU","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VABB", "destination": "VOBL", "flightNo": "AKJ103", "aircraft": ["VT-ANU","VT-TYE"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VOBL", "destination": "VABB", "flightNo": "AKJ104", "aircraft": ["VT-ANU","VT-TYE"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VABB","destination":"VAAH","flightNo":"AKJ105","aircraft":"VT-ANU","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VAAH","destination":"VABB","flightNo":"AKJ106","aircraft":"VT-ANU","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VABB", "destination": "VAAH", "flightNo": "AKJ105", "aircraft": ["VT-ANU","VT-WQH"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VAAH", "destination": "VABB", "flightNo": "AKJ106", "aircraft": ["VT-ANU","VT-WQH"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VIDP","destination":"VOMM","flightNo":"AKJ107","aircraft":"VT-IXA","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VOMM","destination":"VIDP","flightNo":"AKJ108","aircraft":"VT-IXA","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VIDP", "destination": "VOMM", "flightNo": "AKJ107", "aircraft": ["VT-IXA","VT-HSA"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VOMM", "destination": "VIDP", "flightNo": "AKJ108", "aircraft": ["VT-IXA","VT-HSA"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VIDP","destination":"VOBL","flightNo":"AKJ109","aircraft":"VT-IXA","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VOBL","destination":"VIDP","flightNo":"AKJ110","aircraft":"VT-IXA","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VIDP", "destination": "VOBL", "flightNo": "AKJ109", "aircraft": ["VT-IXA","VT-RJK"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VOBL", "destination": "VIDP", "flightNo": "AKJ110", "aircraft": ["VT-IXA","VT-RJK"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VIDP","destination":"VECC","flightNo":"AKJ111","aircraft":"VT-IXA","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VECC","destination":"VIDP","flightNo":"AKJ112","aircraft":"VT-IXA","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VIDP", "destination": "VECC", "flightNo": "AKJ111", "aircraft": ["VT-IXA","VT-SMA"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VECC", "destination": "VIDP", "flightNo": "AKJ112", "aircraft": ["VT-IXA","VT-SMA"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VOBL","destination":"VOCL","flightNo":"AKJ113","aircraft":"VT-BHL","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VOCL","destination":"VOBL","flightNo":"AKJ114","aircraft":"VT-BHL","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VOBL", "destination": "VOCL", "flightNo": "AKJ113", "aircraft": ["VT-BHL","VT-MNB"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VOCL", "destination": "VOBL", "flightNo": "AKJ114", "aircraft": ["VT-BHL","VT-MNB"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VOBL","destination":"VOCI","flightNo":"AKJ115","aircraft":"VT-BHL","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VOCI","destination":"VOBL","flightNo":"AKJ116","aircraft":"VT-BHL","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VOBL", "destination": "VOCI", "flightNo": "AKJ115", "aircraft": ["VT-BHL","VT-ULC"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VOCI", "destination": "VOBL", "flightNo": "AKJ116", "aircraft": ["VT-BHL","VT-ULC"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VOBL","destination":"VOTV","flightNo":"AKJ117","aircraft":"VT-BHL","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VOTV","destination":"VOBL","flightNo":"AKJ118","aircraft":"VT-BHL","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VOBL", "destination": "VOTV", "flightNo": "AKJ117", "aircraft": ["VT-BHL","VT-VBN"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VOTV", "destination": "VOBL", "flightNo": "AKJ118", "aircraft": ["VT-BHL","VT-VBN"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VOMM","destination":"VOCL","flightNo":"AKJ119","aircraft":"VT-CXN","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VOCL","destination":"VOMM","flightNo":"AKJ120","aircraft":"VT-CXN","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VOMM", "destination": "VOCL", "flightNo": "AKJ119", "aircraft": ["VT-CXN","VT-LXE"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VOCL", "destination": "VOMM", "flightNo": "AKJ120", "aircraft": ["VT-CXN","VT-LXE"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VOMM","destination":"VOCI","flightNo":"AKJ121","aircraft":"VT-CXN","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VOCI","destination":"VOMM","flightNo":"AKJ122","aircraft":"VT-CXN","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VOMM", "destination": "VOCI", "flightNo": "AKJ121", "aircraft": ["VT-CXN","VT-QSW"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VOCI", "destination": "VOMM", "flightNo": "AKJ122", "aircraft": ["VT-CXN","VT-QSW"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VOMM","destination":"VAAH","flightNo":"AKJ123","aircraft":"VT-CXN","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VAAH","destination":"VOMM","flightNo":"AKJ124","aircraft":"VT-CXN","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VOMM", "destination": "VAAH", "flightNo": "AKJ123", "aircraft": ["VT-CXN","VT-NQF"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VAAH", "destination": "VOMM", "flightNo": "AKJ124", "aircraft": ["VT-CXN","VT-NQF"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VECC","destination":"VABB","flightNo":"AKJ125","aircraft":"VT-EQZ","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VABB","destination":"VECC","flightNo":"AKJ126","aircraft":"VT-EQZ","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VECC", "destination": "VABB", "flightNo": "AKJ125", "aircraft": ["VT-EQZ","VT-DPA"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VABB", "destination": "VECC", "flightNo": "AKJ126", "aircraft": ["VT-EQZ","VT-DPA"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VECC","destination":"VIDP","flightNo":"AKJ127","aircraft":"VT-EQZ","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VIDP","destination":"VOCI","flightNo":"AKJ128","aircraft":"VT-EQZ","price":65,"status":"Operating", "group": "Akasa Air VA"},
+  { "origin": "VECC", "destination": "VIDP", "flightNo": "AKJ127", "aircraft": ["VT-EQZ","VT-KRP"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VIDP", "destination": "VOCI", "flightNo": "AKJ128", "aircraft": ["VT-EQZ","VT-ULC"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
 
-  {"origin":"VECC","destination":"VOMM","flightNo":"AKJ129","aircraft":"VT-EQZ","price":65,"status":"Operating", "group": "Akasa Air VA"},
-  {"origin":"VOMM","destination":"VECC","flightNo":"AKJ130","aircraft":"VT-EQZ","price":65,"status":"Operating", "group": "Akasa Air VA"}
+  { "origin": "VECC", "destination": "VOMM", "flightNo": "AKJ129", "aircraft": ["VT-EQZ","VT-SBT"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+  { "origin": "VOMM", "destination": "VECC", "flightNo": "AKJ130", "aircraft": ["VT-EQZ","VT-SBT"], "price": 65, "status": "Operating", "group": "Akasa Air VA" },
+
+  { "origin": "OTHH", "destination": "VABB", "flightNo": "AKJ201", "aircraft": ["VT-JLV"], "price": 115, "status": "Operating", "group": "Codeshare", "partner": "Qatar Airways" },
+  { "origin": "VABB", "destination": "OTHH", "flightNo": "AKJ202", "aircraft": ["VT-JLV"], "price": 115, "status": "Operating", "group": "Codeshare", "partner": "Qatar Airways" },
+
+  { "origin": "OTHH", "destination": "VIDP", "flightNo": "AKJ203", "aircraft": ["VT-KRP"], "price": 115, "status": "Operating", "group": "Codeshare", "partner": "Qatar Airways" },
+  { "origin": "VIDP", "destination": "OTHH", "flightNo": "AKJ204", "aircraft": ["VT-KRP"], "price": 115, "status": "Operating", "group": "Codeshare", "partner": "Qatar Airways" },
+
+  { "origin": "OTHH", "destination": "VOMM", "flightNo": "AKJ205", "aircraft": ["VT-LXE"], "price": 115, "status": "Operating", "group": "Codeshare", "partner": "Qatar Airways" },
+  { "origin": "VOMM", "destination": "OTHH", "flightNo": "AKJ206", "aircraft": ["VT-LXE"], "price": 115, "status": "Operating", "group": "Codeshare", "partner": "Qatar Airways" },
+
+  { "origin": "OTHH", "destination": "VOBL", "flightNo": "AKJ207", "aircraft": ["VT-MNB"], "price": 115, "status": "Operating", "group": "Codeshare", "partner": "Qatar Airways" },
+  { "origin": "VOBL", "destination": "OTHH", "flightNo": "AKJ208", "aircraft": ["VT-MNB"], "price": 115, "status": "Operating", "group": "Codeshare", "partner": "Qatar Airways" },
+
+  { "origin": "OTHH", "destination": "VAAH", "flightNo": "AKJ209", "aircraft": ["VT-NQF"], "price": 115, "status": "Operating", "group": "Codeshare", "partner": "Qatar Airways" },
+  { "origin": "VAAH", "destination": "OTHH", "flightNo": "AKJ210", "aircraft": ["VT-NQF"], "price": 115, "status": "Operating", "group": "Codeshare", "partner": "Qatar Airways" },
+
+  { "origin": "OTHH", "destination": "VECC", "flightNo": "AKJ211", "aircraft": ["VT-PAD"], "price": 115, "status": "Operating", "group": "Codeshare", "partner": "Qatar Airways" },
+  { "origin": "VECC", "destination": "OTHH", "flightNo": "AKJ212", "aircraft": ["VT-PAD"], "price": 115, "status": "Operating", "group": "Codeshare", "partner": "Qatar Airways" }
 ]
