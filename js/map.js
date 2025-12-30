@@ -109,3 +109,49 @@ function curvedRoute(from, to, isOTHH) {
     }
   );
 }
+// ---------- LEGEND ----------
+const legend = L.control({ position: "bottomright" });
+
+legend.onAdd = function () {
+  const div = L.DomUtil.create("div", "map-legend");
+
+  div.innerHTML = `
+    <div style="
+      background:#111;
+      padding:10px 12px;
+      border-radius:8px;
+      font-size:13px;
+      color:#fff;
+      box-shadow:0 0 10px rgba(0,0,0,0.6);
+      line-height:1.6;
+    ">
+      <div style="margin-bottom:6px;">
+        <span style="
+          display:inline-block;
+          width:12px;
+          height:12px;
+          background:#ff6a00;
+          border-radius:50%;
+          margin-right:6px;
+        "></span>
+        Akasa Air Routes (India)
+      </div>
+
+      <div>
+        <span style="
+          display:inline-block;
+          width:12px;
+          height:12px;
+          background:#7b61ff;
+          border-radius:50%;
+          margin-right:6px;
+        "></span>
+        Qatar Airways Codeshare (OTHH)
+      </div>
+    </div>
+  `;
+
+  return div;
+};
+
+legend.addTo(map);
