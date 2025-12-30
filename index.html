@@ -51,6 +51,24 @@
   </p>
 </section>
 
+  <script>
+  window.addEventListener('message', (event) => {
+    if (event.data?.type === 'VA_FLIGHT_DATA') {
+      const flight = event.data.payload;
+
+      console.log('Flight received:', flight);
+
+      // Example:
+      // flight.flightNumber
+      // flight.departure
+      // flight.arrival
+
+      // Now map it ✈️
+    }
+  });
+</script>
+
+
 <!-- FOOTER -->
 <footer>
   © 2025 Akasa Virtual Airline — Not affiliated with Akasa Air
