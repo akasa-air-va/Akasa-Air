@@ -1,6 +1,7 @@
 // ===============================
-// AKASA VA – FINAL MAP.JS
+// AKASA VA – FINAL MAP.JS (UPDATED)
 // Uses: airports.json + flights.json
+// flights.json uses clean keys (origin, destination, flightNo, etc.)
 // HON deprecated (ignored)
 // ===============================
 
@@ -41,7 +42,9 @@ function drawAirports(airports) {
       weight: 1
     })
       .addTo(map)
-      .bindPopup(`<b>${icao}</b><br>${a.city}${isHub ? "<br><b>Akasa Hub</b>" : ""}`);
+      .bindPopup(
+        `<b>${icao}</b><br>${a.city}${isHub ? "<br><b>Akasa Hub</b>" : ""}`
+      );
 
     airportMarkers[icao] = marker;
   });
@@ -54,10 +57,10 @@ function enableAirportSelection(airports, flights) {
       clearRoutes();
 
       flights
-        .filter(f => f["ORIGIN ICAO"] === icao)
+        .filter(f => f.origin === icao)
         .forEach(f => {
-          const from = airports[f["ORIGIN ICAO"]];
-          const to = airports[f["DESTINATION ICAO"]];
+          const from = airports[f.origin];
+          const to = airports[f.destination];
           if (!from || !to) return;
 
           const curve = curvedLine(
@@ -68,10 +71,10 @@ function enableAirportSelection(airports, flights) {
           curve
             .addTo(map)
             .bindTooltip(
-              `<b>${f["ROUTE FLIGHT NO."]}</b><br>
-               Aircraft: ${f["ASSIGNED AIRCRAFTS"]}<br>
-               Ticket: $${f["Ticket Price"]}<br>
-               Status: ${f["Status"]}`,
+              `<b>${f.flightNo}</b><br>
+               Aircraft: ${f.aircraft}<br>
+               Ticket: $${f.price}<br>
+               Status: ${f.status}`,
               { sticky: true }
             )
             .on("mouseover", e => e.target.setStyle({ weight: 4 }))
@@ -85,7 +88,11 @@ function enableAirportSelection(airports, flights) {
 
 // ---------- CURVED DASHED ROUTE ----------
 function curvedLine(from, to) {
-  const offset = 0.25;
+  const offset = Math.min(
+    0.25,
+    Math.abs(from[0] - to[0]) * 0.3
+  );
+
   const midLat = (from[0] + to[0]) / 2 + offset;
   const midLng = (from[1] + to[1]) / 2;
 
@@ -112,12 +119,12 @@ function startPlaneAnimation(airports, flights) {
 
   animationInterval = setInterval(() => {
     const f = flights[Math.floor(Math.random() * flights.length)];
-    const from = airports[f["ORIGIN ICAO"]];
-    const to = airports[f["DESTINATION ICAO"]];
+    const from = airports[f.origin];
+    const to = airports[f.destination];
     if (!from || !to) return;
 
     animatePlane(from, to);
-  }, 6000); // slower animation
+  }, 6000);
 }
 
 function animatePlane(from, to) {
@@ -179,5 +186,3 @@ function addLegend() {
 
   legend.addTo(map);
 }
-
-console.log(flights[0]);
