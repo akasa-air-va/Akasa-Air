@@ -52,5 +52,12 @@
     "city": "Calicut",
     "lat": 11.1368,
     "lng": 75.9553
-  }
+  },
+  "OTHH": {
+  "icao": "OTHH",
+  "city": "Doha – Hamad International Airport",
+  "lat": 25.2731,
+  "lng": 51.6081
+}
+
 }
