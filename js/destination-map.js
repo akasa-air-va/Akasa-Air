@@ -58,7 +58,7 @@ Promise.all([
   addLegend();
 });
 
-// Legend (Lufthansa-style)
+// Legend
 function addLegend() {
   const legend = L.control({ position: "bottomleft" });
 

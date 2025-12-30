@@ -179,3 +179,5 @@ function addLegend() {
 
   legend.addTo(map);
 }
+
+console.log(flights[0]);
